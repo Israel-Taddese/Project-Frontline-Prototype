@@ -1,59 +1,65 @@
-Project Frontline – 3D Mobile Strategy Prototype
+# Project Frontline – 3D Mobile Strategy Prototype
 
-60-day Unity 3D mobile strategy game prototype inspired by modern RTS titles.
+![Unity](https://img.shields.io/badge/Engine-Unity-000000?logo=unity)
+![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android-blue)
+![Status](https://img.shields.io/badge/Status-In%20Development-orange)
+![Build Target](https://img.shields.io/badge/Target-60%20Day%20Prototype-success)
 
-Built with Unity URP targeting iOS and Android.
+---
 
-This repository documents the full development process from foundation setup to mobile deployment.
+## Vision
 
+Project Frontline is a fast-paced 3D mobile strategy prototype focused on delivering a tight, polished core combat loop optimized for touch devices.
 
-Project Goal
+The goal is to validate gameplay feel, performance, and store deployment readiness within 60 days.
 
-Build a polished, playable 3D strategy prototype including:
+This is a **vertical slice prototype**, not a full multiplayer production.
+
+---
+
+## Project Objective
+
+Build a playable, store-deployable 3D strategy prototype including:
 
 - 3D battlefield
 - Player-controlled base
-- 3 unit types
-- Enemy AI system
-- Combat mechanics
+- 3 unit types (Melee, Ranged, Tank)
+- Enemy AI with state machine behavior
+- Combat system with readable feedback
 - Resource economy system
-- Mobile optimization pipeline
-- iOS & Android builds
+- Mobile-first UI & controls
+- iOS & Android deployment builds
 
-This is a vertical slice prototype — not a full multiplayer production.
+---
+
+## Tech Stack
+
+**Engine:** Unity 2022/2023 LTS (URP)  
+**Language:** C#  
+**IDE:** Rider / Visual Studio  
+**Version Control:** Git  
+**Target Platforms:** iOS + Android  
+
+---
+
+## Core Architecture
 
 
-Tech Stack
+### Unit Structure
 
-Engine: Unity 2022/2023 LTS (URP)  
-Language: C#  
-IDE: Rider / Visual Studio  
-Version Control: Git  
-Target Platforms: iOS + Android  
-
-
-Core Architecture
-
-GameManager  
- UnitManager  
- EconomyManager  
- CombatManager  
- UIManager  
- AudioManager  
-
-Unit Structure
-
-Abstract Class: `Unit`
+**Abstract Class:** `Unit`
 - Health
 - Movement
 - Attack()
 - TakeDamage()
 
-Derived Classes:
+**Derived Classes:**
 - PlayerUnit
 - EnemyUnit
 
-AI State Machine
+---
+
+## AI State Machine
 
 States:
 - Idle
@@ -61,89 +67,134 @@ States:
 - Attack
 - Dead
 
+Transitions are handled via a lightweight state machine architecture for performance and modularity.
 
-60-Day Roadmap
+---
 
-Phase 1 – Foundation (Week 1)
-- Unity setup
-- Mobile build pipeline
-- Camera system
-- Terrain setup
-- Base placeholder
+## Release Roadmap (Playable + Store Deployable)
 
-Phase 2 – Unit System (Week 2)
-- Unit base class
-- NavMesh movement
-- 3 playable unit types
-
-Phase 3 – AI System (Week 3)
-- Enemy units
-- Patrol logic
-- State machine behavior
-
-Phase 4 – Combat Loop (Week 4)
-- Damage system
-- Cooldowns
-- Health bars
+### Milestone 1 – Core Playable Loop (Weeks 1–2)
+- Unity setup with URP mobile profile
+- 1 complete map with RTS-style camera
+- 3 unit types
+- Basic enemy waves
 - Win/Lose conditions
+- 5–10 minute playable session target
 
-Phase 5 – Economy System (Week 5)
-- Resource generation
-- Unit cost system
-- Spawn logic
+### Milestone 2 – Production Gameplay (Weeks 3–4)
+- Resource economy system
+- Unit spawning flow
+- Combat readability pass (VFX + hit feedback)
+- In-game HUD + pause/settings menu
+- First full internal playtest build
 
-Phase 6 – UI & Polish (Week 6)
-- Main menu
-- Audio integration
-- Visual polish
+### Milestone 3 – Mobile Readiness (Weeks 5–6)
+- Touch-first controls
+- UI scaling for multiple resolutions
+- Performance pass (pooling, batching, texture budgets)
+- Device matrix testing (low/mid/high Android + iPhone)
+- Save/load system + onboarding tutorial
 
-Phase 7 – Optimization (Week 7)
-- Object pooling
-- Draw call reduction
-- Mobile performance tuning
+### Milestone 4 – Store Submission Prep (Weeks 7–8)
+- iOS signing + TestFlight distribution
+- Android signing + Play Console internal test
+- App icon, screenshots, store copy
+- Privacy policy & data disclosure
+- Release Candidate (RC) build + regression pass
 
-Phase 8 – Deployment (Week 8)
-- iOS provisioning
-- Android signing
-- TestFlight build
-- Internal testing
+---
 
+## Definition of Done (Prototype)
 
-Performance Targets
+- Playable build on physical iOS and Android devices
+- Stable 15-minute session with no blocking bugs
+- 60 FPS target on mid-range devices (30 FPS fallback if required)
+- Store-ready submission package for TestFlight + Play Internal
 
-- 60 FPS on mid-range mobile device
+---
+
+##  Gameplay Pillars
+
+1. **Immediate Combat Clarity**
+   - Player always understands battlefield state.
+
+2. **Fast Session Loop**
+   - High-intensity 5–10 minute matches.
+
+3. **Mobile-First Design**
+   - Touch optimized
+   - Clean UI scaling
+   - Performance stable on mid-tier devices
+
+4. **Expandable Architecture**
+   - Systems designed for future multiplayer integration.
+
+---
+
+## Production Status
+
+| System              | Status |
+|--------------------|--------|
+| Project Setup      | ⬜ In Progress |
+| Camera System      | ⬜ Pending |
+| Unit System        | ⬜ Pending |
+| AI System          | ⬜ Pending |
+| Combat System      | ⬜ Pending |
+| Economy System     | ⬜ Pending |
+| UI & Polish        | ⬜ Pending |
+| Optimization       | ⬜ Pending |
+| Store Submission   | ⬜ Pending |
+
+---
+
+## Performance Targets
+
+- 60 FPS on mid-range device
 - < 200 draw calls
 - < 300MB RAM usage
 - Build size under 300MB
 
+---
 
-Development Rules
+## Development Rules
 
 - No feature takes more than 2 days without simplification.
 - Code must be modular and documented.
 - Commit daily.
 - No premature multiplayer implementation.
 
+---
 
-Future Expansion
+## Versioning Strategy
+
+- v0.1 – Core Playable Loop
+- v0.2 – Production Gameplay
+- v0.3 – Mobile Optimized
+- v0.4 – Release Candidate
+- v1.0 – Store Submitted Prototype
+
+---
+
+## Future Expansion
 
 Post-prototype roadmap may include:
 
 - Online multiplayer
 - Backend integration (Firebase / PlayFab)
-- Live ops system
-- Monetization system
+- Live ops systems
+- Monetization systems
 - Clan system
 - Persistent progression
 
+---
 
-
-License
+## License
 
 MIT License – See LICENSE file for details.
 
+---
 
-Author
+## Author
 
 Developed by Israel Taddese  
 Unity 3D Mobile Strategy Prototype – 2026
